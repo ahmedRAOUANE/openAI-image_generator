@@ -1,0 +1,35 @@
+button,
+.button {
+    padding: 5px 1em;
+    border: none;
+    cursor: pointer;
+    margin: 0 0.2em;
+
+    &:hover {
+        background-color: #ffffff50;
+    }
+}
+
+.icon {
+    background-color: transparent;
+}
+
+.transparent {
+    background-color: #ffffff50;
+    box-shadow: 0 0 3px .7px white;
+}
+
+.primary {
+    background-color: var(--primary-color);
+}
+
+input[type="submit"],
+button[type="submit"] {
+    padding: 10px;
+    color: white;
+    background-color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--primary-color);
+    }
+}
