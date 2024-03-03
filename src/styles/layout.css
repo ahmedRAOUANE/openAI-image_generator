@@ -27,16 +27,17 @@
     flex-direction: column;
 }
 .imags-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 5px;
 
     >div {
         position: relative;
         background-color: #b4b4b4;
         border: 1px solid black;
-        width: 260px;
-        height: 260px;
+        width: 256px;
+        height: 256px;
         border-radius: 6px;
     }
 }

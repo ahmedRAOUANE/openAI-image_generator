@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { setUser } from './store/userSlice';
 import { auth } from './firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
