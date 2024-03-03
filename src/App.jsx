@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { setUser } from './store/userSlice';
 import { auth } from './firebase.config';
@@ -11,33 +11,33 @@ import UserLayout from './layout/UserLayout';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import FullScreenLoader from './components/FullScreenLoader';
+import { setIsLoading } from './store/loaderSlice';
 
 function App() {
   const user = useSelector(state => state.userSlice.user);
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate();
 
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       if (user) {
         dispatch(setUser({ id: user.uid, email: user.email }))
-        setIsLoading(false)
+        navigate("/openAI-image_generator/")
       } else {
         dispatch(setUser(null))
-        setIsLoading(false)
       }
+      dispatch(setIsLoading(false))
     })
-  }, [dispatch])
+  }, [dispatch, navigate])
 
-  return isLoading ? (
-    <FullScreenLoader />
-  ) : (
+  return (
     <div>
+      <FullScreenLoader solid />
       <Routes>
         {user ? (
-          <Route path="openAI-image_generator" element={<UserLayout />} />
+          <Route path="/openAI-image_generator" element={<UserLayout />} />
         ) : (
-          <Route path='openAI-image_generator' element={<GuestLayout />} >
+            <Route path='/openAI-image_generator' element={<GuestLayout />} >
             <Route path="/openAI-image_generator/login" element={<Login />} />
             <Route path="/openAI-image_generator/signup" element={<Signup />} />
           </Route>

@@ -1,5 +1,6 @@
 .app {
     position: relative;
+    height: 100vh;
 }
 
 .container {
@@ -19,8 +20,41 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 
 .column {
     flex-direction: column;
+}
+.imags-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+
+    >div {
+        position: relative;
+        background-color: #b4b4b4;
+        border: 1px solid black;
+        width: 260px;
+        height: 260px;
+        border-radius: 6px;
+    }
+}
+
+.input-container {
+    width: 100%;
+    padding: 5px;
+    background: #b4b4b4;
+    border-radius: 6px;
+
+    input,
+    button {
+        border: none;
+        border-radius: 4px;
+        margin: 0 2px;
+    }
+
+    button {
+        padding: 10px;
+    }
 }
