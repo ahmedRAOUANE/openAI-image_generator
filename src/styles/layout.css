@@ -31,6 +31,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 5px;
+    overflow: scroll;
 
     >div {
         position: relative;
@@ -58,4 +59,10 @@
     button {
         padding: 10px;
     }
+}
+.over {
+    box-shadow: 0 0 6px 0.7px #0000006e, 0 0 1px 1px #b8b8b8;
+    padding: 5px;
+    z-index: 3;
+    border-radius: 6px;
 }

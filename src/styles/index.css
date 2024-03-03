@@ -2,6 +2,10 @@
   --primary-color: #165aaa;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   padding: 0;
   margin: 0;
